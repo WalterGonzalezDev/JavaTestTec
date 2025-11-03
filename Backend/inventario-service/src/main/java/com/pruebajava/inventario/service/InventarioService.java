@@ -16,6 +16,7 @@ import java.util.List;
 public class InventarioService {
     
     private final InventarioRepository inventarioRepository;
+    private final ProductoClient productoClient;
     private static final Logger log = LoggerFactory.getLogger(InventarioService.class);
     
     @Transactional(readOnly = true)
@@ -31,6 +32,9 @@ public class InventarioService {
     
     @Transactional
     public Inventario save(Inventario inventario) {
+        if (!productoClient.existeProducto(inventario.getProductoSku())) {
+            throw new IllegalArgumentException("El producto con SKU " + inventario.getProductoSku() + " no existe");
+        }
         log.info("[event] inventario.created sku={} cantidad={}", inventario.getProductoSku(), inventario.getCantidad());
         return inventarioRepository.save(inventario);
     }
