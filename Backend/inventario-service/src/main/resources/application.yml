@@ -25,7 +25,11 @@ security:
   jwt:
     secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
     expiration: 86400000 # 1 día en milisegundos
+  api-key:
+    header: X-API-Key
+    value: inventario-service-api-key-2025
 
 servicios:
   productos:
     url: http://localhost:8081
+    api-key: productos-service-api-key-2025
