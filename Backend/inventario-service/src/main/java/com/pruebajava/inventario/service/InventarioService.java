@@ -4,6 +4,7 @@ import com.pruebajava.inventario.exception.InventarioNotFoundException;
 import com.pruebajava.inventario.model.Inventario;
 import com.pruebajava.inventario.repository.InventarioRepository;
 import lombok.RequiredArgsConstructor;
+import com.pruebajava.inventario.client.ProductoClient;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.slf4j.Logger;
